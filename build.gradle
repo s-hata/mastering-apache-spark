@@ -1,0 +1,17 @@
+apply plugin: "java"
+
+repositories {
+  mavenCentral()
+  maven {
+    url 'https://repo.maven.apache.org/maven2'
+  }
+}
+
+dependencies {
+  compile 'org.apache.spark:spark-core_2.12:2.4.0'
+}
+
+task run(type: JavaExec) {
+  classpath = sourceSets.main.runtimeClasspath
+  main = 'jp.knowledgedatabase.Example'
+}
